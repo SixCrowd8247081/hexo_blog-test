@@ -1,252 +1,312 @@
-### 🥝的网站目前已经开源啦！！！暂定名为**hexo-theme-Fomalhaut**，原作者网站：[u7u7.top](https://u7u7.top)，如果你喜欢的话可以帮我点一个免费的Star🌟🌟🌟哦！（悠柒二次魔改）
+## chagumu's blog（Hexo + Butterfly）使用文档
 
-### 🚧🚧🚧本开源项目并不适合纯小白，需要一定的魔改经验，因此安装之前务必对Hexo框架命令和Butterfly主题比较熟悉，不熟悉的朋友建议提前熟悉[Hexo中文文档](https://hexo.bootcss.com/docs/configuration.html)和[Butterfly主题文档](https://butterfly.js.org/)，以及熟悉本站魔改教程，别上来就问文章怎么写！！！避免各种不必要的麻烦！！！望周知！！！！！！！！！！
+![77150126381](C:\Users\HUAWEI\AppData\Local\Temp\1771501263812.png)
+
+![77150129781](C:\Users\HUAWEI\AppData\Local\Temp\1771501297812.png)
 
 
-![](/repoPic/cover.jpg)
 
-本源码是基于`Butterfly 4.3.1`的二次开发，暂时没做完全的主题分离，因此安装方法是整个博客的替换，建议另起一个文件夹进行安装，或备份好原来的资料再搬过来。当然你也可以不直接搬走，而是借鉴里面的部分代码写法。
+![77150134925](C:\Users\HUAWEI\AppData\Local\Temp\1771501349258.png)
 
-### 📅📅📅3.5更新：微调部分样式，修复部分人反映手机端无法加载css样式的问题，问题在`fomal.js`的1340行附近，切换至手机端时候导致空指针异常，这部分代码注释掉即可！
+原作者：[hexo_youqi: 博客样式开源](https://gitee.com/u7u7-sjh/hexo_youqi) 改样式
 
-```js
-/* 搜索框修复 start */
-// searchSize();
-// window.addEventListener('resize', searchSize)
-// // 搜索窗口自适应
-// function searchSize() {
-//   // 只需要适应手机端
-//   if (document.body.clientWidth > 768) return
-//   let div = document.querySelector('#algolia-hits')
-//   // 监听插入，如果有插入则根据可视高度动态设置最大高度
-//   div.addEventListener('DOMNodeInserted', () => {
-//     div.children[0].style.maxHeight = (document.documentElement.clientHeight - 210) + 'px'
-//   })
-// }
-/* 搜索框修复 end */
+这份 `README.md` 是本仓库**唯一的博客说明文档**。内容包含：
+
+- **如何写文章 / 预览 / 部署**
+- **如何改站点信息与样式（含科技感主题色）**
+- **如何换背景图（如 `love.png`）**
+- **如何换社交图标（把“力扣”图标换成 GitHub 图标）**
+- **如何改公告栏 / 动态文字 / 头像下描述 / 页脚**
+- **一些实用的小功能点子（不含“把公告栏换成图片分享”等小巧思）**
+
+---
+
+### 一、快速开始（安装 / 本地预览 / 部署）
+
+- **安装依赖**（首次或依赖变动时）：
+
+```bash
+npm install
 ```
 
-大家如果还遇到什么问题欢迎给作者留言，作者看到会第一时间修复哦，感谢您的支持！
+- **本地开发预览**：
 
-### 🍡🍡🍡安装教程（演示NodeJS v16.14.0 + Hexo 6.3.0）：
+```bash
+hexo clean
+hexo g
+hexo s
+```
 
-1. 安装 NodeJs、Hexo、Git、注册并连接Github，此部分可参考[Hexo博客搭建基础教程(一)](https://u7u7.top/posts/e593433d.html)。
-  PS：相当于链接教程的第1-7步，第8步就不要做了，不然会清空源码的！！！（不是新手请跳过这条）
+然后浏览器打开：`http://localhost:4000`
 
-2. 把源码打包下载到自己的电脑，然后解压缩到一个你喜欢的文件夹中
+- **部署到 GitHub Pages / 远程**（确保 `_config.yml` 的 `deploy` 已配置好）：
 
-3. 在git bash命令中切换到下载的博客根目录，使用以下命令进行模块安装。这里绝不能使用`hexo init`初始化，若不慎用了，则站点的配置文件`_config.yml`内容会被重置
+```bash
+hexo clean
+hexo g
+hexo d
+```
 
-  ```bash
-  npm i
-  ```
+---
 
-4. 执行以下命令清空并启动项目，启动成功后再浏览器地址栏输入`localhost:4000`进行验证
+### 二、如何发布新文章
 
-  ```bash
-  hexo cl; hexo g; hexo s
-  ```
+1. **创建文章**
 
-5. 到这里一般是没啥问题的了，当本地能成功启动后，改一下站点配置文件的`_config.yml`的`deploy`配置项，然后用以下命令部署到Github（这一步出问题的，请删除站点配置文件的`deploy`配置项与`baidu_url_submitter`的信息）
+```bash
+hexo new "文章标题"
+```
 
-  ```bash
-  hexo d
-  ```
+文章会生成在 `source/_posts` 下。
 
-### 🌈🌈🌈简要说明文档：
+2. **编辑 Front-matter**
 
-- js的主体在`source/js/fomal.js`里面，做了基本分块逻辑的标注，后期整合的，以`... start`和`... end` 包裹
+```yaml
+title: 文章标题
+date: 2026-02-18 12:00:00
+categories:
+  - 分类名称
+tags:
+  - 标签1
+  - 标签2
+cover: https://你的封面图链接
+top_img: https://文章顶部大图链接 # 可选
+```
 
-- css主体在`themes\butterfly\source\css\_custom\custom.css`里，与Butterfly的自带样式联合编译为一个index.css，有基本的注释
+3. **写正文**
 
-- 因为兼顾了白天夜间模式不同壁纸和用户自定义壁纸，背景的切换做在了`fomal.js`的第3190行附近，美化模块代码逻辑在`fomal.js`的第2894-3596行，四个背景分别为PC端白天、PC端黑夜、手机端白天、手机端黑夜；美化模块起点为第3356行，可以自定义任何DOM，例如按钮、滑块、开关按钮、图片框和外挂标签等（注意：外挂标签必须要被`<div id="article-container">`包含才会被渲染）
+- 图片写法：`![](图片链接或站内路径)`
+- 代码块：
 
-  ![](repoPic/meihua.png)
+```markdown
+​```js
+console.log('hello')
+```
+```
 
-  ```js
-  /* 美化模块 start */
-  ...
-  // 雪花开关(这里就是默认关雪花，如果你想默认开就将none改为block)
-  if (localStorage.getItem("snow") == undefined) {
-    localStorage.setItem("snow", "none");
-  }
-  ...
-  // 背景图(约3190行) 下面链接换成你自己的图片链接
-  document.getElementById("defineBg").innerText = `:root{
-    --default-bg: url(https://lskypro.acozycotage.net/Fomalhaut/img/dm14.webp);
-    --darkmode-bg:url(https://lskypro.acozycotage.net/Fomalhaut/img/yuanshen1.webp);
-    --mobileday-bg: url(https://lskypro.acozycotage.net/Fomalhaut/img/snow.webp);
-    --mobilenight-bg: url(https://lskypro.acozycotage.net/Fomalhaut/img/mb8.webp);
-  }`;
-  ...
-  // 美化模块主体DOM(约3356行)
-    winbox.body.innerHTML = `
-    
-      ...
-      <h3>1. 二次元</h3>
-      {% folding cyan, 查看二次元背景 %}
-      <div class="bgbox">
-      <a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://lskypro.acozycotage.net/Fomalhaut/img/home_bg.webp)" class="imgbox" onclick="changeBg('url(https://lskypro.acozycotage.net/Fomalhaut/img/home_bg.webp)')"></a>
-      // 这里自己加图片
-      </div>
-      {% endfolding %}
-      ...
-  
-    `
-  ...
-  /* 美化模块 end */
-  
-  ```
+---
 
-- 页脚部分请见`themes\butterfly\layout\includes\footer.pug`，包括页脚计时器、徽标、文字、布局等
+### 三、修改站点标题 / 关键词 / 简介
 
-- 封面图在主题配置文件`_config.butterfly.yml`的`default_cover`配置项，建议配置多项后随机刷出封面图
+- **文件**：`_config.yml`
+- 常用字段：
 
-  ```yaml
-  cover:
-    # display the cover or not (是否顯示文章封面)
-    index_enable: true
-    aside_enable: true
-    archives_enable: true
-    # the position of cover in home page (封面顯示的位置)
-    # left/right/both
-    position: both
-    # When cover is not set, the default cover is displayed (當沒有設置cover時，默認的封面顯示)
-    default_cover:
-      - https://source.fomal.cc/img/default_cover_14.webp
-      - https://source.fomal.cc/img/default_cover_15.webp
-      # ......
-  ```
+​```yaml
+title: chagumu's blog
+subtitle:
+description: '网站简介'
+keywords: "关键词1,关键词2,..."
+author: chagumu's blog
+```
 
-  
+改完后重新生成/部署即可生效。
 
-- 加载页面时中间的头像在`custom.css`约1300行附近，直接搜索替换成你自己的头像即可
+---
 
-  ```css
-  /* heo 加载动画头像 */
-  .loading-img {
-    background: url(https://lskypro.acozycotage.net/LightPicture/2022/12/60e5d4e39da7c077.webp)
-      no-repeat center center;
-    background-size: cover;
-  }
-  ```
+### 四、主题颜色（科技感配色）
 
-- 页脚时间由`fomal.js`控制，搜索以下代码，将网站诞生时间改为你自己的即可(示例：`2022-08-09`)
+- **文件**：`_config.butterfly.yml` → `theme_color`
+- 当前仓库已按蓝青色科技风配置（你可以继续改颜色值）：
 
-  ```js
-  /* 页脚计时器 start */
-  var now = new Date();
-  function createtime() {
-    // 当前时间
-    now.setTime(now.getTime() + 1000);
-    var start = new Date("08/01/2022 00:00:00"); // 旅行者1号开始计算的时间
-    var dis = Math.trunc(23400000000 + ((now - start) / 1000) * 17); // 距离=秒数*速度 记住转换毫秒
-    var unit = (dis / 149600000).toFixed(6);  // 天文单位
-    // 网站诞生时间
-    var grt = new Date("08/09/2022 00:00:00");
-  ...
-    let currentTimeHtml = "";
-    (currentTimeHtml =
-      hnum < 18 && hnum >= 9
-        ? `<img class='boardsign' src='https://lskypro.acozycotage.net/Fomalhaut/badge/F小屋-科研摸鱼中.svg' title='什么时候能够实现财富自由呀~'><br> <div style="font-size:13px;font-weight:bold">本站居然运行了 ${dnum} 天 ${hnum} 小时 ${mnum} 分 ${snum} 秒 <i id="heartbeat" class='fas fa-heartbeat'></i> <br> 旅行者 1 号当前距离地球 ${dis} 千米，约为 ${unit} 个天文单位 🚀</div>`
-        : `<img class='boardsign' src='https://lskypro.acozycotage.net/Fomalhaut/badge/F小屋-下班休息啦.svg' title='下班了就该开开心心地玩耍~'><br> <div style="font-size:13px;font-weight:bold">本站居然运行了 ${dnum} 天 ${hnum} 小时 ${mnum} 分 ${snum} 秒 <i id="heartbeat" class='fas fa-heartbeat'></i> <br> 旅行者 1 号当前距离地球 ${dis} 千米，约为 ${unit} 个天文单位 🚀</div>`),
-      document.getElementById("workboard") &&
-      (document.getElementById("workboard").innerHTML = currentTimeHtml);
-  }
-  ...
-  
-  /*页脚计时器 end */
-  ```
+```yaml
+theme_color:
+  enable: true
+  main: "#00d1ff"
+  paginator: "#00d1ff"
+  button_hover: "#00ffa3"
+  text_selection: "#00d1ff"
+  link_color: "#18ffff"
+  meta_color: "#8a8f9c"
+  hr_color: "#00bcd4"
+  code_foreground: "#e0f7ff"
+  code_background: "rgba(0, 15, 35, .85)"
+  toc_color: "#00e5ff"
+  blockquote_padding_color: "#00bcd4"
+  blockquote_background_color: "rgba(0, 188, 212, .08)"
+  scrollbar_color: "#00e5ff"
+  meta_theme_color_light: "#0b1020"
+  meta_theme_color_dark: "#02040a"
+```
 
-  
+---
 
-- 控制台字符画，在`fomal.js`找到以下代码，并进行相应的替换，字符画可以到：[Text to ASCII Art Generator (TAAG)](https://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20)生成
+### 五、背景图片（用 `assets/love.png`，不要星空）
 
-  ```js
-  /* 控制台输出字符画 start */
-  var now1 = new Date();
-  
-  function createtime1() {
-    var grt = new Date("08/09/2022 00:00:00"); //此处修改你的建站时间或者网站上线时间
-    now1.setTime(now1.getTime() + 250);
-    var days = (now1 - grt) / 1000 / 60 / 60 / 24;
-    var dnum = Math.floor(days);
-  
-    var ascll = [
-      `欢迎来到U7's Blog🍋の小家!`,
-      `Future is now 🍭🍭🍭`,
-      `
-          
-  ███████  ██████  ███    ███  █████  ██      ██   ██  █████  ██    ██ ████████ 
-  ██      ██    ██ ████  ████ ██   ██ ██      ██   ██ ██   ██ ██    ██    ██    
-  █████   ██    ██ ██ ████ ██ ███████ ██      ███████ ███████ ██    ██    ██    
-  ██      ██    ██ ██  ██  ██ ██   ██ ██      ██   ██ ██   ██ ██    ██    ██    
-  ██       ██████  ██      ██ ██   ██ ███████ ██   ██ ██   ██  ██████     ██   
-                                                
-  `,
-      "小站已经苟活",
-      dnum,
-      "天啦!",
-      "©2022 By Fomalhaut",
-    ];
-  
-    setTimeout(
-      console.log.bind(
-        console,
-        `\n%c${ascll[0]} %c ${ascll[1]} %c ${ascll[2]} %c${ascll[3]}%c ${ascll[4]}%c ${ascll[5]}\n\n%c ${ascll[6]}\n`,
-        "color:#39c5bb",
-        "",
-        "color:#39c5bb",
-        "color:#39c5bb",
-        "",
-        "color:#39c5bb",
-        ""
-      )
-    );
-  }
-  
-  createtime1();
-  
-  function createtime2() {
-    var ascll2 = [`NCC2-036`, `调用前置摄像头拍照成功，识别为「大聪明」`, `Photo captured: `, ` 🤪 `];
-  
-    setTimeout(
-      console.log.bind(
-        console,
-        `%c ${ascll2[0]} %c ${ascll2[1]} %c \n${ascll2[2]} %c\n${ascll2[3]}`,
-        "color:white; background-color:#10bcc0",
-        "",
-        "",
-        'background:url("https://unpkg.zhimg.com/anzhiyu-assets@latest/image/common/tinggge.gif") no-repeat;font-size:450%'
-      )
-    );
-  
-    setTimeout(console.log.bind(console, "%c WELCOME %c 欢迎光临，大聪明", "color:white; background-color:#23c682", ""));
-  
-    setTimeout(
-      console.warn.bind(
-        console,
-        "%c ⚡ Powered by U7's Blog🍋 %c 你正在访问U7's Blog🍋の小家",
-        "color:white; background-color:#f0ad4e",
-        ""
-      )
-    );
-  
-    setTimeout(console.log.bind(console, "%c W23-12 %c 系统监测到你已打开控制台", "color:white; background-color:#4f90d9", ""));
-    setTimeout(
-      console.warn.bind(console, "%c S013-782 %c 你现在正处于监控中", "color:white; background-color:#d9534f", "")
-    );
-  }
-  createtime2();
-  ...
-  /* 控制台输出字符画 end */
-  ```
+1. **把图片放到站内**
+- 把 `love.png` 放到：`source/assets/love.png`
 
-  
+2. **配置 Butterfly 背景**
+- **文件**：`_config.butterfly.yml` → `background`
 
-- 网站图标为根目录的`favicon.ico`，替换为你自己的图标即可
-- 欢迎信息地理位置显示，这个需要配置自己的key，类似的还有bibi的配置、朋友圈等配置均需要参考相关文档改成自己的API
-- 个人信息卡片的图标和菜单栏等图标，参考[博客魔改教程总结(二)](https://u7u7.top/posts/5389e93f.html)中的第4-7项
-- 其余配置项基本与Butterfly兼容，参考[Butterfly官方文档](https://butterfly.js.org/)即可
-- 遇到问题请多看相关文档(Hexo主题文档、Butterfly主题文档、店长的教程)和本站教程，若有其他疑问请加Q群：`691942826` 验证回答：`🥝开源项目`
+```yaml
+background:
+  default: url(/assets/love.png);
+  darkmode: url(/assets/love.png);
+  mobileday: url(/assets/love.png);
+  mobilenight: url(/assets/love.png);
+```
+
+3. **重新生成并强刷**
+
+```bash
+hexo clean
+hexo g
+hexo d
+```
+
+打开线上页面后，建议 `Ctrl + F5` 强制刷新，避免缓存导致仍显示旧背景。
+
+> 如果你仍然看到星空，通常是：浏览器缓存 / CDN 缓存 / GitHub Pages 还没更新到最新构建产物。优先做 `hexo clean` + 重新部署 + 强刷。
+
+---
+
+### 六、社交链接：把“力扣”的图标/文字换成 GitHub（以及微信链接）
+
+#### 1）社交链接配置位置
+
+- **文件**：`_config.butterfly.yml` → `social:`
+
+示例：
+
+```yaml
+social:
+  微信: /assets/Wechat.jpg || icon-weixin || faa-tada
+  QQ: /assets/QQ.jpg || icon-QQ || faa-tada
+  B站: https://space.bilibili.com/3546706109008142?spm_id_from=333.1387.0.0 || icon-bilibili || faa-tada
+  QQ邮箱: mailto:3835385985@qq.com || icon-youxiang || faa-tada
+  github: https://github.com/shanyangcao || icon-github || faa-tada
+```
+
+格式是：`显示名: 链接 || 图标 || 动效`
+
+#### 2）把 GitHub 图标换成“真正的 GitHub 图标”（推荐：Font Awesome）
+
+如果你不想依赖 iconfont 的 `icon-github`，直接改成 Font Awesome：
+
+```yaml
+github: https://github.com/shanyangcao || fab fa-github || faa-tada
+```
+
+> `fab fa-github` 是 Font Awesome Brands 的 GitHub 图标类名。
+
+#### 3）微信二维码怎么换
+
+- **站内文件方式**（推荐）：
+  - 放图片到：`source/assets/wechat.png`
+  - 然后改成：
+
+```yaml
+微信: /assets/wechat.png || icon-weixin || faa-tada
+```
+
+- **外链方式**：把 `/assets/wechat.png` 换成你的图床链接即可。
+
+---
+
+### 七、公告栏怎么修改（侧边公告卡片）
+
+- **文件**：`_config.butterfly.yml` → `aside.card_announcement`
+
+```yaml
+aside:
+  card_announcement:
+    enable: true
+    content: <center><b>这里是公告内容，可以写站点说明、更新日志等</b></center>
+```
+
+- `content` 支持简单 HTML：
+  - 换行：`<br>`
+  - 链接：`<a href="https://xxx" target="_blank">文字</a>`
+  - 加粗：`<b>文字</b>`
+
+关闭公告栏：把 `enable: true` 改成 `enable: false`。
+
+---
+
+### 八、首页标题下会动的文字（打字机效果）怎么改
+
+- **文件**：`_config.butterfly.yml` → `subtitle`
+
+```yaml
+subtitle:
+  enable: true
+  effect: true
+  loop: true
+  source: false
+  sub:
+    - "欢迎来到 chagumu's blog"
+    - "记录一点代码，也记录一点生活"
+    - "愿你所想皆所愿"
+```
+
+想关掉打字机动画：把 `effect: true` 改成 `effect: false`。
+
+---
+
+### 九、头像下面的文字怎么改（侧边栏个人卡片）
+
+- **名字**：来自 `_config.yml` 的 `author`
+- **头像下面的小字描述**：优先来自 `_config.butterfly.yml` → `aside.card_author.description`（为空时可能回落到 `_config.yml` 的 `description`）
+
+示例：
+
+```yaml
+aside:
+  card_author:
+    enable: true
+    description: "chagumu，在互联网里留一点痕迹"
+```
+
+---
+
+### 十、页脚那串“运行时间/感性文字”等怎么改（你截图里那块）
+
+- **文件**：`source/js/fomal.js`
+- 关键词：搜索 `createtime()` 或 `workboard`
+
+当前仓库已经把那一大段文字收敛为更简洁的输出；如果你想彻底清空，逻辑上就是让最终写入 `#workboard` 的内容为空字符串即可，然后重新生成部署。
+
+---
+
+### 十一、底部“画条图片 / 徽标区域”怎么改
+
+- **文件**：`themes/butterfly/layout/includes/footer.pug`
+- 在 `p#ghbdages` 里可以插入图片，例如底部横幅：
+
+```pug
+a.github-badge(target='_blank' href="https://你的链接" style='margin-inline:5px' title="这里是图片说明")
+  img(src="/assets/your_banner.png" alt="自定义底部横幅")
+```
+
+然后把图片放到：`source/assets/your_banner.png`，重新生成即可。
+
+---
+
+### 十二、常用“改样式/改功能”的入口（快速索引）
+
+- **自定义 CSS 主文件**：`themes/butterfly/source/css/_custom/custom.css`
+- **JS 主逻辑 / 动效**：`source/js/fomal.js`
+- **主题大多数配置**：`_config.butterfly.yml`
+- **站点基本信息**：`_config.yml`
+
+> 修改主题文件（`themes/butterfly/...`）后，主题升级可能覆盖你的改动；重要改动建议记录到你的变更笔记里，或用 Git 方便回滚/迁移。
+
+---
+
+### 十三、可以加哪些“实用小功能”（不含“公告栏换成图片分享”等小巧思）
+
+下面是一些“体积小、收益高、比较有科技感”的功能点子（都能在 Butterfly 上落地）：
+
+- **阅读进度条**：文章页顶部一条细进度条，滚动时发光增长（科技蓝 `#00d1ff`）。
+- **代码块复制反馈增强**：复制成功 Toast + 按钮状态短暂变绿。
+- **返回顶部增强**：按钮显示滚动百分比，或圆环进度条。
+- **目录 TOC 高亮增强**：当前章节自动高亮，点击平滑滚动。
+- **字数统计 + 预计阅读时长**：`约 2500 字 | 约 8 分钟`。
+- **快捷键**：`S` 搜索、`D` 深色模式、`J/K` 上下篇。
+- **随机一言卡片（本地句库）**：不依赖外部接口，每天显示一句技术/生活短句。
+
+实现位置通常在：
+- JS：`source/js/fomal.js`（或新建 `source/js/*.js` 再用 `_config.butterfly.yml` 的 `inject` 引入）
+- CSS：`themes/butterfly/source/css/_custom/custom.css`
+
 

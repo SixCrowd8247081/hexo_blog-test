@@ -8,7 +8,7 @@ type: "link"
 {% tabs link %}
 <!-- tab 🙋 butterfly-💭candy -->
 ```yml
-    - name: U7's Blog🍋
+    - name: chagumu's blog
       link: https://u7u7.top/
       avatar: https://u7u7.top/assets/avatar.webp
       descr: u7 and cc is now 🍭🍭🍭
@@ -19,12 +19,12 @@ type: "link"
 <!-- tab 🥗Volantis -->
 ```JSON
 {
-  "title": "U7's Blog🍋",
+  "title": "chagumu's blog",
   "screenshot": "https://u7imgblog.oss-cn-hangzhou.aliyuncs.com/blogbackground/image.webp",
   "url": "https://u7u7.top/",
   "avatar": "https://u7u7.top/assets/avatar.webp",
   "description": "u7 and cc is now 🍭🍭🍭",
-  "keywords": "U7's Blog🍋"
+  "keywords": "chagumu's blog"
 }
 ```
 <!-- endtab -->
@@ -33,12 +33,12 @@ type: "link"
 
 | 名称       | 数值                                                         |
 | ---------- | ------------------------------------------------------------ |
-| 站点名称   | U7's Blog🍋                                                   |
+| 站点名称   | chagumu's blog                                                   |
 | 站点截图   | https://u7imgblog.oss-cn-hangzhou.aliyuncs.com/blogbackground/image.webp |
 | 站点链接   | https://u7u7.top/                                        |
 | 站长头像   | https://u7u7.top/assets/avatar.webp                         |
 | 站点描述   | u7 and cc is now🍭🍭🍭                         |
-| 站点关键词 | U7's Blog🍋,个人博客,代码                                     |
+| 站点关键词 | chagumu's blog,个人博客,代码                                     |
 
 <!-- endtab -->
 {% endtabs %}

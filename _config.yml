@@ -3,11 +3,11 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: U7's Blog🍋
+title: chagumu's blog
 subtitle: 
-description: 'u7 and cc is now 🍭🍭🍭'
-keywords: "Java,MySQL,算法,代码,博客,Butterfly,Hexo,U7's Blog🍋"
-author: U7's Blog🍋
+description: '我并不想说'
+keywords: "Java,MySQL,算法,代码,博客,Butterfly,Hexo,chagumu's blog"
+author: chagumu's blog
 language: zh-CN
 timezone: ''
 
@@ -124,7 +124,7 @@ theme: butterfly
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   - type: git
-    repository: https://github.com/u7-u7/youqi.github.io.git # 修改自己的git仓库地址
+    repository: https://github.com/shanyangcao/shanyangcao.github.io.git # 修改自己的git仓库地址
     # git@github.com:u7-u7/u7-u7.github.io.git
     # root@47.120.9.247:/home/git/blog.git
     branch: main
@@ -340,7 +340,7 @@ markdown:
 # Live2D
 ## https://github.com/EYHN/hexo-helper-live2d
 live2d:
-  enable: true #开关插件版看板娘
+  enable: false #开关插件版看板娘（已关闭以移除左下角人物）
   scriptFrom: local # 默认
   pluginRootPath: live2dw/ # 插件在站点上的根目录(相对路径)
   pluginJsPath: lib/ # 脚本文件相对与插件根目录路径
