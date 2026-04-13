@@ -1256,7 +1256,7 @@ button#go-up:hover #percent {
 
 /* 个人信息卡片背景图 */
 [data-theme="light"] #aside-content > .card-widget.card-info {
-  background-image: url();
+  background-image: url( );
   background-repeat: no-repeat;
   background-attachment: inherit;
   background-size: 100%;
