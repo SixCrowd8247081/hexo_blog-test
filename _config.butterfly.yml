@@ -114,7 +114,7 @@ favicon:
 # Avatar (頭像)
 avatar:
   img: /assets/avatar.webp
-  effect: false
+  effect: true
 
 # Disable all banner image
 disable_top_img: false
@@ -224,10 +224,10 @@ reward:
   enable: true
   coinAudio: https://npm.elemecdn.com/akilar-candyassets@1.0.36/audio/aowu.m4a
   QR_code:
-    - img: https://u7imgblog.oss-cn-hangzhou.aliyuncs.com/blognoteImg/wechat.jpg
+    - img: 
       link:
       text: 微信
-    - img: https://u7imgblog.oss-cn-hangzhou.aliyuncs.com/blognoteImg/alipay.jpg
+    - img: 
       link:
       text: 支付宝
 
