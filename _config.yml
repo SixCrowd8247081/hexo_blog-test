@@ -73,7 +73,7 @@ math:
 # 音乐插件
 aplayer: 
   meting: false
-  asset_inject: false
+  asset_inject: true
                
                     
 
@@ -277,19 +277,19 @@ categoryBar:
   column: odd # odd：3列 | even：4列
   row: 1 #显示行数，默认两行，超过行数切换为滚动显示
   message:
-    - descr: 🍡U7の学习笔记
+    - descr: 🍡Baiの学习笔记
       cover: https://u7imgblog.oss-cn-hangzhou.aliyuncs.com/blogbackground/微信图片_20230310203314.jpg
-    - descr: 🍼U7の大数据训练笔记
+    - descr: 🍼Baiの大数据训练笔记
       cover: https://u7imgblog.oss-cn-hangzhou.aliyuncs.com/blogbackground/微信图片_20230310203304.png
-    - descr: 🍉U7の项目笔记
+    - descr: 🍉Baiの项目笔记
       cover: https://u7imgblog.oss-cn-hangzhou.aliyuncs.com/blogbackground/wallhaven-9mvyl8.webp
-    - descr: 🍨U7の总结
+    - descr: 🍨Baiの总结
       cover: https://u7imgblog.oss-cn-hangzhou.aliyuncs.com/blogbackground/wallhaven-gpjj97.webp
-    - descr: 🍟U7の算法学习笔记
+    - descr: 🍟Baiの算法学习笔记
       cover: https://u7imgblog.oss-cn-hangzhou.aliyuncs.com/blogbackground/wallhaven-g7xrrd.webp
-    - descr: 🍥U7の博客设计
+    - descr: 🍥Baiの博客设计
       cover: https://u7imgblog.oss-cn-hangzhou.aliyuncs.com/blogbackground/wallhaven-x8o7md.webp
-    - descr: 🍥U7の博客设计
+    - descr: 🍥Baiの博客设计
       cover: https://u7imgblog.oss-cn-hangzhou.aliyuncs.com/blogbackground/wallhaven-x8o7md.webp
   custom_css: https://npm.elemecdn.com/hexo-butterfly-categories-card@1.0.0/lib/categorybar.css
 # 小冰分类磁贴
@@ -301,22 +301,22 @@ magnet:
   devide: 3
   display:
     - name: 学习笔记
-      display_name: U7の学习笔记
+      display_name: Baiの学习笔记
       icon: 🍡
     - name: 杂项
-      display_name: U7のLife&Work杂项
+      display_name: BaiのLife&Work杂项
       icon: 🍼
     - name: 项目
-      display_name: U7の项目笔记
+      display_name: Baiの项目笔记
       icon: 🍉
     - name: 工作月总结
-      display_name: U7の工作月总结
+      display_name: Baiの工作月总结
       icon: 🍨
     - name: 算法
-      display_name: U7の算法学习笔记
+      display_name: Baiの算法学习笔记
       icon: 🍟
     - name: 面试
-      display_name: U7の面试
+      display_name: Baiの面试
       icon: 🍥
   color_setting:
     text_color: black # 文字默认颜色
@@ -340,7 +340,7 @@ markdown:
 # Live2D
 ## https://github.com/EYHN/hexo-helper-live2d
 live2d:
-  enable: false #开关插件版看板娘（已关闭以移除左下角人物）
+  enable: true #开关插件版看板娘（已关闭以移除左下角人物）
   scriptFrom: local # 默认
   pluginRootPath: live2dw/ # 插件在站点上的根目录(相对路径)
   pluginJsPath: lib/ # 脚本文件相对与插件根目录路径
