@@ -73,7 +73,7 @@ math:
 # 音乐插件
 aplayer: 
   meting: false
-  asset_inject: true
+  asset_inject: false
                
                     
 
